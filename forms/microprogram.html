@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no"><meta property="fb:app_id" content="2133031763635285"><meta property="og:description" content="微程式資訊的名片範例。"><meta property="og:image:height" content="640"><meta property="og:image:width" content="1280"><meta property="og:image" content="https://i.imgur.com/NXiylpJ.png"><meta property="og:locale" content="zh_TW"><meta property="og:site_name" content="筆記國度"><meta property="og:title" content="微程式資訊 LINE 名片"><meta property="og:type" content="website"><meta property="og:url" content="https://taichunmin.idv.tw/liff-businesscard/forms/microprogram.html"><title>微程式資訊 LINE 名片</title><script>(function () {
+  const hostname = location.host.split(':')[0]
+  if (hostname === 'localhost') document.write(`<script src="http://${hostname}:35729/livereload.js?snipver=1"></` + 'script>')
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@3/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&amp;display=swap"><style>[v-cloak] {
+  display: none; }
+
+body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans TC', sans-serif; }
+
+input, textarea {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
+</style></head><body><script async src="https://www.googletagmanager.com/gtag/js?id=UA-39556213-12"></script><script>/* global sleep */
+window.dataLayer = window.dataLayer || []
+function gtag () { window.dataLayer.push(arguments) }
+window.gtagStartTime = new Date()
+gtag('js', window.gtagStartTime)
+gtag('config', 'UA-39556213-3')
+gtag('config', 'UA-39556213-12', {
+  app_name: 'LINE 數位版名片網站',
+  send_page_view: false,
+  transport_type: 'beacon',
+})
+window.gtagEvent = (category, action, label, value = 1) => new Promise(resolve => {
+  gtag('event', action, {
+    event_callback: resolve,
+    event_category: category,
+    event_label: label,
+    value,
+  })
+})
+window.gtagScreenView = screenName => new Promise(resolve => {
+  gtag('event', 'screen_view', {
+    event_callback: resolve,
+    screen_name: screenName,
+  })
+})
+window.gtagError = async (err, fatal = false) => new Promise(resolve => {
+  gtag('event', 'exception', {
+    description: err.message || '',
+    event_callback: resolve,
+    fatal,
+  })
+})
+window.gtagTiming = async (name) => new Promise(resolve => {
+  gtag('event', 'timing_complete', {
+    event_callback: resolve,
+    event_category: location.pathname,
+    name,
+    value: new Date() - window.gtagStartTime,
+  })
+})
+window.gtagSetLineId = async lineId => {
+  while (!window.liff) { // 如果沒有 window.liff 就隔一段時間檢查一次
+    await sleep(2000)
+  }
+  await liff.ready
+  const config = {
+    app_name: `LIFF ${liff.getOS()}`,
+    send_page_view: false,
+    transport_type: 'beacon',
+  }
+  const profile = await liff.getProfile()
+  if (liff.isInClient()) config.app_version = liff.getLineVersion()
+  if (_.hasIn(profile, 'userId')) config.user_id = profile.userId
+  gtag('config', 'UA-39556213-12', config)
+}</script><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand mb-0 h1" href="https://taichunmin.idv.tw/liff-businesscard/">LINE 數位版名片</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#businesscard-navbar"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="businesscard-navbar"><ul class="navbar-nav mr-auto"><li class="nav-item"><a class="nav-link" href="https://taichunmin.idv.tw/liff-businesscard/"><i class="fa fa-fw fa-list"></i> 免費樣版列表</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/taichunmin/liff-businesscard/blob/master/README.md"><i class="fa fa-fw fa-book"></i> 使用教學</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://developers.line.biz/flex-simulator/"><i class="fa fa-fw fa-eye"></i> Flex 訊息模擬器</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/taichunmin/liff-businesscard/blob/master/CONTRIBUTING.md"><i class="fa fa-fw fa-id-card-o"></i> 如何客製樣版</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/taichunmin/liff-businesscard"><i class="fa fa-fw fa-github"></i> 原始碼</a></li></ul></div></nav><div class="container my-4" id="app" v-cloak><h1 class="my-3 text-center">微程式資訊 LINE 名片</h1><div class="form-group my-2"><label for="vcard-title-tw">中文職稱</label><input class="form-control form-control-sm" id="vcard-title-tw" type="text" v-model="vcard.title_tw"><small class="form-text text-muted" id="help-label">請填寫中文職稱。</small></div><div class="form-group my-2"><label for="vcard-name-tw">中文姓名</label><input class="form-control form-control-sm" id="vcard-name-tw" type="text" v-model="vcard.name_tw"><small class="form-text text-muted" id="help-label">請填寫中文姓名。</small></div><div class="form-group my-2"><label for="vcard-title-en">英文職稱</label><input class="form-control form-control-sm" id="vcard-title-en" type="text" v-model="vcard.title_en"><small class="form-text text-muted" id="help-label">請填寫英文職稱。</small></div><div class="form-group my-2"><label for="vcard-name-en">英文姓名</label><input class="form-control form-control-sm" id="vcard-name-en" type="text" v-model="vcard.name_en"><small class="form-text text-muted" id="help-label">請填寫英文姓名。</small></div><div class="form-group my-2"><label for="vcard-mobile">手機號碼</label><input class="form-control form-control-sm" id="vcard-mobile" type="tel" v-model="vcard.mobile"><small class="form-text text-muted" id="help-label">請填寫手機號碼。</small></div><div class="form-group my-2"><label for="vcard-ext">分機號碼</label><input class="form-control form-control-sm" id="vcard-ext" type="tel" v-model="vcard.ext"><small class="form-text text-muted" id="help-label">請填寫分機號碼。</small></div><div class="form-group my-2"><label for="vcard-email">公司信箱</label><input class="form-control form-control-sm" id="vcard-email" type="email" v-model="vcard.email"><small class="form-text text-muted" id="help-label">請填寫公司信箱。</small></div><a class="btn btn-primary btn-block my-2" :href="shortcut" target="_blank">建立名片</a><button class="btn btn-danger btn-block my-2" type="button" @click="btnReset">重設為預設資料</button></div><script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-base64@3/base64.min.js"></script><script src="https://cdn.jsdelivr.net/npm/json5@2/dist/index.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lodash@4/lodash.min.js"></script><script src="https://cdn.jsdelivr.net/npm/papaparse@5/papaparse.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1/dist/umd/popper.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.jsdelivr.net/npm/qs@6/dist/qs.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script><script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script><!-- bootstrap require jquery and pupper--><script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js"></script><script src="../js/common.js?cachebust=1596130725054"></script><script>window.vueData = {
+  vcard: {
+    email: 'mei@program.com.tw',
+    ext: '000',
+    mobile: '0000000000',
+    name_en: 'Mei Wang',
+    name_tw: '王小美',
+    template: 'https://taichunmin.idv.tw/liff-businesscard/cards/microprogram.txt',
+    title_en: 'Marketing',
+    title_tw: '行銷企劃',
+  },
+}</script><script>/* global httpBuildQuery, encodeBase64url */
+window.vm = new Vue({
+  el: '#app',
+  data: () => {
+    let vueData
+    if (_.isFunction(window.vueData)) vueData = _.cloneDeep(window.vueData())
+    else if (_.isPlainObject(window.vueData)) vueData = _.cloneDeep(window.vueData)
+    else vueData = {}
+
+    // load vcard data from localStorage
+    try {
+      const saved = JSON.parse(localStorage.getItem(location.pathname))
+      vueData.vcard = { ...vueData.vcard, ..._.omit(saved, ['template']) }
+    } catch (err) {}
+
+    return vueData
+  },
+  async mounted () {
+    window.gtagScreenView('瀏覽製作「微程式資訊 LINE 名片」名片網頁')
+    window.gtagTiming('mounted start')
+    // save vcard to localStorage
+    this.$watch('vcard', (newVal, oldVal) => {
+      localStorage.setItem(location.pathname, JSON.stringify(newVal))
+    }, { deep: true })
+    window.gtagTiming('mounted end')
+  },
+  computed: {
+    shortcut () {
+      const params = httpBuildQuery(_.mapValues(this.vcard, encodeBase64url))
+      if (!_.isString(params) || !params.length) return
+      return `https://liff.line.me/1654437282-9O3Gyk0p/?${params}`
+    },
+  },
+  methods: {
+    async btnReset () {
+      try {
+        window.gtagEvent('瀏覽製作「微程式資訊 LINE 名片」名片網頁', 'btnReset', this.vcard.template)
+        const result = await Swal.fire({
+          cancelButtonText: '取消',
+          confirmButtonText: '重設',
+          icon: 'question',
+          reverseButtons: true,
+          showCancelButton: true,
+          text: '請問你是否要把表單內的資料重設為預設資料？',
+          title: '重設為預設資料',
+        })
+        if (!result.isConfirmed) return
+
+        let vueData
+        if (_.isFunction(window.vueData)) vueData = _.cloneDeep(window.vueData())
+        else if (_.isPlainObject(window.vueData)) vueData = _.cloneDeep(window.vueData)
+        else vueData = {}
+        this.$set(this, 'vcard', vueData.vcard)
+      } catch (err) {
+        window.gtagError(err, true)
+        console.error(err)
+      }
+    },
+  },
+})</script></body></html>

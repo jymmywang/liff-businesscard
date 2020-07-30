@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no"><meta property="fb:app_id" content="2133031763635285"><meta property="og:description" content="PsPrint Right Align One"><meta property="og:image:height" content="640"><meta property="og:image:width" content="1280"><meta property="og:image" content="https://i.imgur.com/g8GdiVN.png"><meta property="og:locale" content="zh_TW"><meta property="og:site_name" content="筆記國度"><meta property="og:title" content="PsPrint Right Align One"><meta property="og:type" content="website"><meta property="og:url" content="https://taichunmin.idv.tw/liff-businesscard/forms/psprint-3949.html"><title>PsPrint Right Align One</title><script>(function () {
+  const hostname = location.host.split(':')[0]
+  if (hostname === 'localhost') document.write(`<script src="http://${hostname}:35729/livereload.js?snipver=1"></` + 'script>')
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@3/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&amp;display=swap"><style>[v-cloak] {
+  display: none; }
+
+body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans TC', sans-serif; }
+
+input, textarea {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
+</style></head><body><script async src="https://www.googletagmanager.com/gtag/js?id=UA-39556213-12"></script><script>/* global sleep */
+window.dataLayer = window.dataLayer || []
+function gtag () { window.dataLayer.push(arguments) }
+window.gtagStartTime = new Date()
+gtag('js', window.gtagStartTime)
+gtag('config', 'UA-39556213-3')
+gtag('config', 'UA-39556213-12', {
+  app_name: 'LINE 數位版名片網站',
+  send_page_view: false,
+  transport_type: 'beacon',
+})
+window.gtagEvent = (category, action, label, value = 1) => new Promise(resolve => {
+  gtag('event', action, {
+    event_callback: resolve,
+    event_category: category,
+    event_label: label,
+    value,
+  })
+})
+window.gtagScreenView = screenName => new Promise(resolve => {
+  gtag('event', 'screen_view', {
+    event_callback: resolve,
+    screen_name: screenName,
+  })
+})
+window.gtagError = async (err, fatal = false) => new Promise(resolve => {
+  gtag('event', 'exception', {
+    description: err.message || '',
+    event_callback: resolve,
+    fatal,
+  })
+})
+window.gtagTiming = async (name) => new Promise(resolve => {
+  gtag('event', 'timing_complete', {
+    event_callback: resolve,
+    event_category: location.pathname,
+    name,
+    value: new Date() - window.gtagStartTime,
+  })
+})
+window.gtagSetLineId = async lineId => {
+  while (!window.liff) { // 如果沒有 window.liff 就隔一段時間檢查一次
+    await sleep(2000)
+  }
+  await liff.ready
+  const config = {
+    app_name: `LIFF ${liff.getOS()}`,
+    send_page_view: false,
+    transport_type: 'beacon',
+  }
+  const profile = await liff.getProfile()
+  if (liff.isInClient()) config.app_version = liff.getLineVersion()
+  if (_.hasIn(profile, 'userId')) config.user_id = profile.userId
+  gtag('config', 'UA-39556213-12', config)
+}</script><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand mb-0 h1" href="https://taichunmin.idv.tw/liff-businesscard/">LINE 數位版名片</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#businesscard-navbar"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="businesscard-navbar"><ul class="navbar-nav mr-auto"><li class="nav-item"><a class="nav-link" href="https://taichunmin.idv.tw/liff-businesscard/"><i class="fa fa-fw fa-list"></i> 免費樣版列表</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/taichunmin/liff-businesscard/blob/master/README.md"><i class="fa fa-fw fa-book"></i> 使用教學</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://developers.line.biz/flex-simulator/"><i class="fa fa-fw fa-eye"></i> Flex 訊息模擬器</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/taichunmin/liff-businesscard/blob/master/CONTRIBUTING.md"><i class="fa fa-fw fa-id-card-o"></i> 如何客製樣版</a></li><li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/taichunmin/liff-businesscard"><i class="fa fa-fw fa-github"></i> 原始碼</a></li></ul></div></nav><div class="container my-4" id="app" v-cloak><h1 class="my-3 text-center">PsPrint Right Align One</h1><div class="form-group my-2"><label for="vcard-logo">LOGO</label><input class="form-control form-control-sm" id="vcard-logo" type="text" v-model="vcard.logo"><small class="form-text text-muted" id="help-label">請填寫 LOGO，比例為 <code>1:1</code>。</small></div><div class="form-group my-2"><label for="vcard-name">姓名</label><input class="form-control form-control-sm" id="vcard-name" type="text" v-model="vcard.name"><small class="form-text text-muted" id="help-label">請填寫姓名。</small></div><div class="form-group my-2"><label for="vcard-title">職稱</label><input class="form-control form-control-sm" id="vcard-title" type="text" v-model="vcard.title"><small class="form-text text-muted" id="help-label">請填寫職稱。</small></div><div class="form-group my-2"><label for="vcard-company">公司</label><input class="form-control form-control-sm" id="vcard-company" type="text" v-model="vcard.company"><small class="form-text text-muted" id="help-label">請填寫公司名稱。</small></div><div class="form-group my-2"><label for="vcard-address">地址</label><input class="form-control form-control-sm" id="vcard-address" type="text" v-model="vcard.address"><small class="form-text text-muted" id="help-label">請填寫公司地址。</small></div><div class="form-group my-2"><label for="vcard-maps">地圖</label><input class="form-control form-control-sm" id="vcard-maps" type="url" v-model="vcard.maps"><small class="form-text text-muted" id="help-label">請填寫公司的 Google 地圖網址。</small></div><div class="form-group my-2"><label for="vcard-tel">電話</label><input class="form-control form-control-sm" id="vcard-tel" type="tel" v-model="vcard.tel"><small class="form-text text-muted" id="help-label">請填寫公司電話。</small></div><div class="form-group my-2"><label for="vcard-email">信箱</label><input class="form-control form-control-sm" id="vcard-email" type="email" v-model="vcard.email"><small class="form-text text-muted" id="help-label">請填寫公司信箱。</small></div><div class="form-group my-2"><label for="vcard-url">網站</label><input class="form-control form-control-sm" id="vcard-url" type="url" v-model="vcard.url"><small class="form-text text-muted" id="help-label">請填寫公司網站。</small></div><a class="btn btn-primary btn-block my-2" :href="shortcut" target="_blank">建立名片</a><button class="btn btn-danger btn-block my-2" type="button" @click="btnReset">重設為預設資料</button></div><script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-base64@3/base64.min.js"></script><script src="https://cdn.jsdelivr.net/npm/json5@2/dist/index.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lodash@4/lodash.min.js"></script><script src="https://cdn.jsdelivr.net/npm/papaparse@5/papaparse.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1/dist/umd/popper.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.jsdelivr.net/npm/qs@6/dist/qs.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script><script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script><!-- bootstrap require jquery and pupper--><script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js"></script><script src="../js/common.js?cachebust=1596130725164"></script><script>window.vueData = {
+  vcard: {
+    address: '台中市西屯區市政路402號7樓',
+    company: '微程式資訊股份有限公司',
+    email: 'mei@program.com.tw',
+    ext: '000',
+    logo: 'https://i.imgur.com/GclvYFK.png',
+    maps: 'https://www.google.com/maps/search/?api=1&query_place_id=ChIJAaZEqCYWaTQRMv6fuIsJEuo&query=%E5%BE%AE%E7%A8%8B%E5%BC%8F%E8%B3%87%E8%A8%8A&openExternalBrowser=1',
+    mobile: '0000000000',
+    name: '王小美',
+    tel: '04-23692699,000',
+    template: 'https://taichunmin.idv.tw/liff-businesscard/cards/psprint-3949.txt',
+    title: '行銷企劃',
+    url: 'https://www.program.com.tw',
+  },
+}</script><script>/* global httpBuildQuery, encodeBase64url */
+window.vm = new Vue({
+  el: '#app',
+  data: () => {
+    let vueData
+    if (_.isFunction(window.vueData)) vueData = _.cloneDeep(window.vueData())
+    else if (_.isPlainObject(window.vueData)) vueData = _.cloneDeep(window.vueData)
+    else vueData = {}
+
+    // load vcard data from localStorage
+    try {
+      const saved = JSON.parse(localStorage.getItem(location.pathname))
+      vueData.vcard = { ...vueData.vcard, ..._.omit(saved, ['template']) }
+    } catch (err) {}
+
+    return vueData
+  },
+  async mounted () {
+    window.gtagScreenView('瀏覽製作「PsPrint Right Align One」名片網頁')
+    window.gtagTiming('mounted start')
+    // save vcard to localStorage
+    this.$watch('vcard', (newVal, oldVal) => {
+      localStorage.setItem(location.pathname, JSON.stringify(newVal))
+    }, { deep: true })
+    window.gtagTiming('mounted end')
+  },
+  computed: {
+    shortcut () {
+      const params = httpBuildQuery(_.mapValues(this.vcard, encodeBase64url))
+      if (!_.isString(params) || !params.length) return
+      return `https://liff.line.me/1654437282-9O3Gyk0p/?${params}`
+    },
+  },
+  methods: {
+    async btnReset () {
+      try {
+        window.gtagEvent('瀏覽製作「PsPrint Right Align One」名片網頁', 'btnReset', this.vcard.template)
+        const result = await Swal.fire({
+          cancelButtonText: '取消',
+          confirmButtonText: '重設',
+          icon: 'question',
+          reverseButtons: true,
+          showCancelButton: true,
+          text: '請問你是否要把表單內的資料重設為預設資料？',
+          title: '重設為預設資料',
+        })
+        if (!result.isConfirmed) return
+
+        let vueData
+        if (_.isFunction(window.vueData)) vueData = _.cloneDeep(window.vueData())
+        else if (_.isPlainObject(window.vueData)) vueData = _.cloneDeep(window.vueData)
+        else vueData = {}
+        this.$set(this, 'vcard', vueData.vcard)
+      } catch (err) {
+        window.gtagError(err, true)
+        console.error(err)
+      }
+    },
+  },
+})</script></body></html>
